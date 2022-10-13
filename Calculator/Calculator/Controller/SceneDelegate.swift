@@ -1,6 +1,6 @@
 //
 //  Calculator - SceneDelegate.swift
-//  Created by dragon. 
+//  Created by yagom. 
 //  Copyright © yagom. All rights reserved.
 // 
 

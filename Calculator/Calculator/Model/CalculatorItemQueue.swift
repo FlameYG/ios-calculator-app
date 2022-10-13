@@ -1,39 +1,21 @@
-//
-//  CalculatorItemQueue.swift
-//  Calculator
-//
-//  Created by dragon on 2022/09/21.
-//
+//  Created by Aejong on 2022/09/21.
 
-struct CalculatorItemQueue<Item: CalculateItem> {
-    private var calculateItemList = [Item]()
-    public var count: Int {
-        return calculateItemList.count
+struct CalculatorItemQueueByLinkedList<T: CalculateItem> {
+    var linkedList = LinkedList<T>()
+    
+    var isEmpty: Bool {
+        return self.linkedList.isEmpty
     }
     
-    public init() {}
-    
-    public mutating func enqueue(element: Item) {
-        return calculateItemList.append(element)
+    var front: T? {
+        return self.linkedList.head?.value
     }
     
-    public mutating func dequeue() -> Item? {
-        if calculateItemList.count > 0 {
-            return calculateItemList.removeFirst()
-        } else {
-            return nil
-        }
+    mutating func enqueue(_ item: T) {
+        self.linkedList.appendValue(item)
     }
     
-    public mutating func peek() -> Item? {
-        return calculateItemList.first
-    }
-    
-    public mutating func clear() {
-        return calculateItemList.removeAll()
-    }
-    
-    public func isEmpty() -> Bool? {
-        return calculateItemList.isEmpty
+    mutating func dequeue() -> T? {
+        return self.linkedList.removeHead()
     }
 }
